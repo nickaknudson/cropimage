@@ -25,7 +25,7 @@ import android.view.View;
 // overlayed with the image. There are two coordinate spaces in use. One is
 // image, another is screen. computeLayout() uses mMatrix to map from image
 // space to screen space.
-class HighlightView {
+public class HighlightView {
 
     @SuppressWarnings("unused")
     private static final String TAG = "HighlightView";
@@ -54,7 +54,7 @@ class HighlightView {
                 resources.getDrawable(R.drawable.indicator_autocrop);
     }
 
-    boolean mIsFocused;
+    public boolean mIsFocused;
     boolean mHidden;
 
     public boolean hasFocus() {
@@ -72,7 +72,7 @@ class HighlightView {
         mHidden = hidden;
     }
 
-    protected void draw(Canvas canvas) {
+    public void draw(Canvas canvas) {
 
         if (mHidden) {
             return;
@@ -273,7 +273,7 @@ class HighlightView {
 
     // Handles motion (dx, dy) in screen space.
     // The "edge" parameter specifies which edges the user is dragging.
-    void handleMotion(int edge, float dx, float dy) {
+    public void handleMotion(int edge, float dx, float dy) {
 
         Rect r = computeLayout();
         if (edge == GROW_NONE) {
@@ -430,14 +430,14 @@ class HighlightView {
         init();
     }
 
-    enum ModifyMode {None, Move, Grow}
+    public enum ModifyMode {None, Move, Grow}
 
     private ModifyMode mMode = ModifyMode.None;
 
-    Rect mDrawRect;  // in screen space
+    public Rect mDrawRect;  // in screen space
     private RectF mImageRect;  // in image space
-    RectF  mCropRect;  // in image space
-    Matrix mMatrix;
+    public RectF  mCropRect;  // in image space
+    public Matrix mMatrix;
 
     private boolean mMaintainAspectRatio = false;
     private float mInitialAspectRatio;

@@ -26,7 +26,7 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.widget.ImageView;
 
-abstract class ImageViewTouchBase extends ImageView {
+public abstract class ImageViewTouchBase extends ImageView {
 
     @SuppressWarnings("unused")
     private static final String TAG = "ImageViewTouchBase";
@@ -61,13 +61,13 @@ abstract class ImageViewTouchBase extends ImageView {
 
     float mMaxZoom;
 
-    int mLeft;
+    public int mLeft;
 
-    int mRight;
+    public int mRight;
 
-    int mTop;
+    public int mTop;
 
-    int mBottom;
+    public int mBottom;
 
     // ImageViewTouchBase will pass a Bitmap to the Recycler if it has finished
     // its use of that Bitmap.
@@ -192,7 +192,7 @@ abstract class ImageViewTouchBase extends ImageView {
     // view's dimensions then center it (literally).  If the image
     // is scaled larger than the view and is translated out of view
     // then translate it back into view (i.e. eliminate black bars).
-    protected void center(boolean horizontal, boolean vertical) {
+    public void center(boolean horizontal, boolean vertical) {
 
         if (mBitmapDisplayed.getBitmap() == null) {
             return;
@@ -266,7 +266,7 @@ abstract class ImageViewTouchBase extends ImageView {
         return getValue(matrix, Matrix.MSCALE_X);
     }
 
-    protected float getScale() {
+    public float getScale() {
 
         return getScale(mSuppMatrix);
     }
