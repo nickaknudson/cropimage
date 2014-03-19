@@ -284,8 +284,9 @@ public abstract class ImageViewTouchBase extends ImageView {
 
         // We limit up-scaling to 2x otherwise the result may look bad if it's
         // a small icon.
-        float widthScale = Math.min(viewWidth / w, 2.0f);
-        float heightScale = Math.min(viewHeight / h, 2.0f);
+        // NAK: override to 8x
+        float widthScale = Math.min(viewWidth / w, 8.0f);
+        float heightScale = Math.min(viewHeight / h, 8.0f);
         float scale = Math.min(widthScale, heightScale);
 
         matrix.postConcat(bitmap.getRotateMatrix());
